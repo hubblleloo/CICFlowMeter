@@ -211,6 +211,7 @@ public class FlowMonitorPane extends JPanel {
         pane.setBorder(BorderFactory.createEmptyBorder(10,15,10,15));
         pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
+
         Dimension d = new Dimension(80,48);
 
         btnLoad = new JButton("Load");
@@ -295,9 +296,11 @@ public class FlowMonitorPane extends JPanel {
         task.execute();
     }
 
-    private void startTrafficFlow() {
+    public void startTrafficFlow() {
+        logger.info("run1");
+        loadPcapIfs();
 
-        String ifName = list.getSelectedValue().name();
+        String ifName = "any";
 
         if (mWorker != null && !mWorker.isCancelled()) {
             return;

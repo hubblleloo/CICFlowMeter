@@ -1,14 +1,19 @@
 package cic.cs.unb.ca.ifm;
 
 import cic.cs.unb.ca.flow.FlowMgr;
+import cic.cs.unb.ca.flow.ui.FlowMonitorPane;
 import cic.cs.unb.ca.guava.GuavaMgr;
 import cic.cs.unb.ca.ifm.ui.MainFrame;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import sun.applet.Main;
+
 import java.awt.*;
 
 public class App {
 	public static final Logger logger = LoggerFactory.getLogger(App.class);
+	public static FlowMonitorPane flow;
+	public static MainFrame frame;
 	public static void init() {
 		FlowMgr.getInstance().init();
 		GuavaMgr.getInstance().init();
@@ -35,6 +40,9 @@ public class App {
             try {
                 init();
                 new MainFrame();
+				logger.info("run");
+//				flow = new FlowMonitorPane();
+//				flow.startTrafficFlow();
             } catch (Exception e) {
 				logger.debug(e.getMessage());
             }

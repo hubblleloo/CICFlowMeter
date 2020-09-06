@@ -21,6 +21,7 @@ public class MainFrame extends JFrame{
 	private FlowOfflinePane offLinePane;
 	private FlowMonitorPane monitorPane;
 	private FlowVisualPane visualPane;
+	private FlowMonitorPane starter;
 	
 	
 	public MainFrame() throws HeadlessException {
@@ -54,6 +55,8 @@ public class MainFrame extends JFrame{
         GuavaMgr.getInstance().getEventBus().register(this);
 
 		setVisible(true);
+
+		monitorPane.startTrafficFlow();
 	}
 	
 	private void initMenu() {
