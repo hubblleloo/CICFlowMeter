@@ -7,10 +7,23 @@ for linux, sudo is a prerequisite
 mvn install:install-file -Dfile=jnetpcap.jar -DgroupId=org.jnetpcap -DartifactId=jnetpcap -Dversion=1.4.1 -Dpackaging=jar
 ```
 
+Add the proto file in src/main/proto
+
+For dependencies refer to this link
+https://medium.com/@intuting/implement-grpc-service-using-java-gradle-7a54258b60b8
+
+open terminal
+
+```
+$ ./gradlew build
+```
+
+
 ## Run
 ### IntelliJ IDEA
 open a Terminal in the IDE
 ```
+make sure the grpc server is up and running
 //linux:
 $ sudo bash
 $ gradle execute

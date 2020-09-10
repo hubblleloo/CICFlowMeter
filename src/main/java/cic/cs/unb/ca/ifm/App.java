@@ -4,9 +4,10 @@ import cic.cs.unb.ca.flow.FlowMgr;
 import cic.cs.unb.ca.flow.ui.FlowMonitorPane;
 import cic.cs.unb.ca.guava.GuavaMgr;
 import cic.cs.unb.ca.ifm.ui.MainFrame;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.applet.Main;
 
 import java.awt.*;
 
@@ -23,6 +24,7 @@ public class App {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+
 		/*try {
 			//UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");

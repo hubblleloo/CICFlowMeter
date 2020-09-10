@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import cic.cs.unb.ca.ifm.SendData;
+import cic.cs.unb.ca.ifm.UnaryGrpc;
+import io.grpc.ManagedChannel;
+import io.grpc.ManagedChannelBuilder;
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics;
 import org.jnetpcap.packet.format.FormatUtils;
 
@@ -1231,7 +1236,13 @@ public class BasicFlow {
     	}
 
         dump.append(getLabel());
-
+		ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost",50051).usePlaintext().build();
+		if (channel != null){
+			UnaryGrpc.UnaryBlockingStub stub= UnaryGrpc.newBlockingStub(channel);
+			SendData.Message message = SendData.Message.newBuilder().setMessage(dump.toString()).build();
+			SendData.MessageResponse response = stub.getServerResponse(message);
+			System.out.println(response.getMessage());
+		}
     	
     	return dump.toString();
     }
